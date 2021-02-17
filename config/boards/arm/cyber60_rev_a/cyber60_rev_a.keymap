@@ -19,7 +19,7 @@
 // |  LCTL  |  LALT  |  LWIN  |  RALT  |     SPACE  |  FN   |  RWIN |  RALT | RMENU | RCTRL |
 // ------------------------------------------------------------------------------------------
 				bindings = <
-	&gresc		 &kp NUM_1 	&kp NUM_2	&kp NUM_3 	&kp NUM_4 &kp NUM_5 &kp NUM_6 	&kp NUM_7 	&kp NUM_8 &kp NUM_9	&kp NUM_0	&kp MINUS	&kp EQL  	&kp BSLH	&kp GRAV
+	&gresc		 &out OUT_USB 	&out OUT_BLE	&kp NUM_3 	&kp NUM_4 &bt BT_CLR &kp NUM_6 	&kp NUM_7 	&kp NUM_8 &kp NUM_9	&kp NUM_0	&kp MINUS	&kp EQL  	&kp BSLH	&kp GRAV
 	&mt RALT TAB &kp   Q   	&kp   W   	&kp   E   	&kp   R   &kp   T   &kp   Y   	&kp   U   	&kp   I   &kp   O   &kp   P   	&kp LBKT 	&kp RBKT	&kp BKSP
 	&kp LCTL 	 &kp   A   	&kp   S   	&kp   D   	&kp   F   &kp   G   &kp   H   	&kp   J   	&kp   K   &kp   L   &kp  SCLN  	&kp  QUOT   &kp RET
 	&kp LSFT 	 &none		&kp   Z   	&kp   X   	&kp   C   &kp   V   &kp   B   	&kp   N   	&kp   M   &kp  CMMA &kp  DOT  	&kp  FSLH	&kp RSFT 	&mo FN1
