@@ -5,6 +5,7 @@
  */
 
 #include <zephyr.h>
+#include <kernel.h>
 #include <device.h>
 #include <devicetree.h>
 #include <drivers/gpio.h>
@@ -82,9 +83,25 @@ void set_led(size_t index)
     gpio_pin_set(dev, leds[index].pin, true);
 }
 
+
+void led_work_handler(struct k_work *work) {
+    reset_leds();
+}
+
+K_WORK_DEFINE(led_work, led_work_handler);
+
+void led_expiry_function()
+{
+    k_work_submit(&led_work);
+}
+
+K_TIMER_DEFINE(led_timer, led_expiry_function, NULL);
+
 int led_listener(const zmk_event_t *eh)
 {
     uint8_t index = zmk_ble_active_profile_index();
+
+    k_timer_stop(&led_timer);
 
     reset_leds();
     switch(index) {
@@ -108,6 +125,7 @@ int led_listener(const zmk_event_t *eh)
     default:
         break;
     }
+    k_timer_start(&led_timer, K_SECONDS(3), K_SECONDS(3));
 
     return ZMK_EV_EVENT_BUBBLE;
 }
