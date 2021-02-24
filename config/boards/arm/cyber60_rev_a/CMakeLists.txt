@@ -1,3 +1,4 @@
+target_sources(app PRIVATE pinmux.c)
 target_sources(app PRIVATE cyber60_led.c)
 
 set_property(GLOBAL APPEND PROPERTY extra_post_build_commands
